@@ -1,1 +1,1 @@
-Lendo arquivos com métodos síncronos.
+Meu textão

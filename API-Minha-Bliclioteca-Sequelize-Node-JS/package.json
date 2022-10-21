@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "debug": "nodemon index.js" 
+    "debug": "nodemon index.js",
+    "test": "mocha tests/**/*$NAME*.test.js --exit"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,11 @@
     "sequelize-cli": "^6.5.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.1.0",
+    "nodemon": "^2.0.20",
+    "sequelize-test-helpers": "^1.4.3",
+    "sinon": "^14.0.1"
   }
 }

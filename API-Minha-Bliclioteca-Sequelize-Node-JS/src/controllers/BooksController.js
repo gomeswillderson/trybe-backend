@@ -1,4 +1,4 @@
-const bookService = require('../services/BooksService');
+const { bookService } = require('../services');
 
 const error500Message = 'Algo deu errado';
 

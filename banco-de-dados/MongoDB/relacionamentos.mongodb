@@ -1,0 +1,76 @@
+// Como seri se fosse igual ao banco de dados relacional:
+
+// documento do usuario
+{
+    _id: "joe",
+    name: "Joe Bookreader"
+}
+
+// documento do endereço
+{
+    user_id: "joe", // referencia do doc user
+    street: "123 Fake Street",
+    city: "Faketon",
+    state: "MA",
+    zip: "12344"
+}
+
+// NoSQL seria dessa forma:
+
+// documento do usuario
+{
+    _id: "joe",
+    name: "Joe Bookreader"
+    address: {
+    street: "123 Fake Street",
+    city: "Faketon",
+    state: "MA",
+    zip: "12344"
+    }
+}
+
+// Relacionamento 1:N relacional:
+
+// documento do usuario
+{
+    _id: "joe",
+    name: "Joe Bookreader"
+}
+
+// documento do endereço
+{
+    user_id: "joe", // referencia do doc user
+    street: "123 Fake Street",
+    city: "Faketon",
+    state: "MA",
+    zip: "12344"
+},
+
+{
+    user_id: "joe", // referencia do doc user
+    street: "123 Fake Street 2",
+    city: "FaketonTwo",
+    state: "AM",
+    zip: "54322"
+}
+
+// Relacionamento 1:N NoSQL:
+
+{
+    _id: "joe",
+    name: "Joe Bookreader"
+    address: [
+    {
+    street: "123 Fake Street",
+    city: "Faketon",
+    state: "MA",
+    zip: "12344"
+    },
+    {
+    street: "123 Fake Street 2",
+    city: "FaketonTwo",
+    state: "AM",
+    zip: "54322"
+    }
+  ]      
+}

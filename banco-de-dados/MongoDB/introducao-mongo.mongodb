@@ -1,0 +1,60 @@
+use('class');
+
+db.inventory.insertMany([
+    { item:"paper", qty: 100, size: { h: 8.5, w: 11, uom:"in" }, status: "D"},
+    { item:"planner", qty: 75, size: { h: 9, w: 30, uom:"cm" }, status: "D"},
+    { item:"postcard", qty: 45, size: { h: 10, w: 15, uom:"cm" }, status: "A"},
+]);
+
+use('class');
+db.inventory.find();
+// select * from inventory
+
+use('class');
+db.inventory.find({ status: 'D'});
+// select * from inventory
+// where status = "D";
+
+use('class');
+db.inventory.find({ status: 'D', item: 'paper'});
+// select * from inventory
+// where status = "D" and item = paper;
+
+use('class')
+db.users.insertOne({
+    _id: "joe",
+    name: "Joe Bookreader",
+    address: [
+    {
+    street: "123 Fake Street",
+    city: "Faketon",
+    state: "MA",
+    zip: "12344"
+    },
+    {
+    street: "123 Fake Street 2",
+    city: "FaketonTwo",
+    state: "AM",
+    zip: "54322"
+    }
+  ]      
+})
+
+use('class')
+db.users.find({'address.state': 'MA'});
+
+// select item, status from inventory:
+use('class')
+db.inventory.find({}, {item: true, status: true, _id:false});
+
+// SELECT * from inventory limit 2;
+use('class');
+db.inventory.find().limit(2);
+
+// SELECT * from inventory (pulando 2);
+use('class');
+db.inventory.find().skip(2);
+
+// trabalhando com paginacao;
+use('class');
+db.inventory.find().skip(7*10).limit(10);

@@ -1,0 +1,69 @@
+use("aula_29_2");
+
+// filmes que foram lancados antes do ano 2000
+db.filmes.find({ano: { $lt: 2000 } });
+
+// filmes que goram lançados no ano 2000 ou antes
+use("aula_29_2");
+db.filmes.find({ano: {$lte: 2000 } });
+
+// filmes que foram lancados nos anos posteriores a 1993
+use("aula_29_2");
+db.filmes.find({ano: { $gt:1993 } });
+
+// filmes que foram lançados a partir de 1993
+use("aula_29_2");
+db.filmes.find({ano: {$gte: 1993 } });
+
+// filmes que foram lancados de 1993 ate 2000
+use("aula_29_2");
+db.filmes.find({ano: {$gte: 1993, $lte: 2000}});
+
+// filmes que foram lancados em 1993
+use("aula_29_2");
+db.filmes.find({ano: {$eq: 1993}});
+// or
+use("aula_29_2");
+db.filmes.find({ano: 1993});
+
+// filmes que tem 7 avaliacaoes boas
+use("aula_29_2");
+db.filmes.find({"avaliacao.bom": 7});
+// or
+use("aula_29_2");
+db.filmes.find({"avaliacao.bom": { $eq: 7}});
+
+// filmes que não tem 8 avaliacoes ruins
+use("aula_29_2");
+db.filmes.find({"avaliacao.ruim": { $ne: 8} });
+
+// filmes que foram lançados em 2001, 1968 ou 1995
+use("aula_29_2");
+db.filmes.find({ano: {$in: [2001, 1968, 1995]}});
+
+// filmes que não foram lançados nem em 2013, nem em 2008
+use("aula_29_2");
+db.filmes.find({ano: {$nin: [2013, 2008]}});
+
+// filmes que foram lançados nos anos posteriores ao 200
+// e receberam a partir de 8 avaliacoes boas
+use("aula_29_2");
+db.filmes.find({
+    $and: [{ano: {$gt: 2000}}, {"avaliacao.bom": {$gte: 8}}]
+});
+
+// filmes que foram lançados nos anos posteriores ao 200
+// OU receberam a partir de 8 avaliacoes boas
+use("aula_29_2");
+db.filmes.find({
+    $or: [{ano: {$gt: 2000}}, {"avaliacao.bom": {$gte: 8}}]
+});
+
+// filmes que não foram dirigidos por Michael Bay
+use("aula_29_2");
+db.filmes.find({ diretor: { $not: { $eq: "Michael Bay"}}});
+
+// Filmes que nao foram dirigidos por Michael Bay
+// e nao receberam 10 avaliacoes ruins
+use("aula_29_2");
+db.filmes.find({ $nor: [{diretor: "Michael Bay"}, {"avaliacao.ruim": 10}]});

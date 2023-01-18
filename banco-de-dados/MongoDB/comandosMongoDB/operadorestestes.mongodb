@@ -1,0 +1,11 @@
+// Todos os registros que contem o primeiro campo
+
+use('aula_29_2');
+db.records.find({primeiro: {$exists: true}}); 
+// true pode ser substituido por 1
+
+// Todos os registros que nao contem o segundo campo
+
+use('aula_29_2');
+db.records.find({segundo: {$exists: false}});
+// false pode ser substituido por -1

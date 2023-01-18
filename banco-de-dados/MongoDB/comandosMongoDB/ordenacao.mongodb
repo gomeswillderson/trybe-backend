@@ -1,0 +1,14 @@
+// ordenar filmes pelo titulo em ordem crescente
+use('aula_29_2');
+db.filmes.find().sort({titulo: 1});
+
+// ordenar filmes pela quantidade
+// de avaliacoes boas em ordem decrescente
+use('aula_29_2');
+db.filmes.find().sort({"avaliacao.bom":-1 });
+//as "" utiliza-se para acessar sub documentos
+
+// ordernar pelos filmes mais recentes,
+// e os que estiverem no mesmo ano, em ordem alfabetica
+use('aula_29_2');
+db.filmes.find().sort({ ano: -1}, { titulo: 1 })

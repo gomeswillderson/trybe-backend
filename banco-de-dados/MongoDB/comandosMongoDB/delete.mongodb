@@ -1,0 +1,13 @@
+// remove o primeiro documento da colecao
+use('aula_29_2');
+db.filmes.deleteOne();
+
+// remove o primeiro documento que tiver
+// o titulo igual a Os Oito Odiados
+use('aula_29_2');
+db.filmes.deleteOne({titulo: "Os Oito Odiados"});
+
+// remove todos os documentos com mais que
+// 6 avaliacoes ruins
+use('aula_29_2');
+db.filmes.deleteMany({"avaliacao.ruim": { $gt:6 }});
